@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="ur" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>بغداد کارنر | Baghdad Corner - فینسی کپڑے</title>
+    <style>
+        /* کلر اسکیم اور بنیادی سیٹنگز */
+        :root {
+            --primary-color: #1a1a1a; /* ڈارک تھیم */
+            --accent-color: #d4af37; /* رائل گولڈن کلر */
+            --text-light: #ffffff;
+            --text-dark: #333333;
+            --bg-light: #f9f9f9;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+        }
+
+        /* ہیڈر اور نیویگیشن (موبائل فرینڈلی) */
+        header {
+            background-color: var(--primary-color);
+            color: var(--text-light);
+            padding: 15px 20px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--accent-color);
+            text-decoration: none;
+            letter-spacing: 1px;
+        }
+
+        .contact-btn {
+            background-color: var(--accent-color);
+            color: var(--primary-color);
+            padding: 8px 15px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        /* ہیرو سیکشن (مین بینر) */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?q=80&w=600') no-repeat center center/cover;
+            height: 60vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: var(--text-light);
+            padding: 20px;
+        }
+
+        .hero h1 {
+            font-size: 36px;
+            margin-bottom: 10px;
+            color: var(--accent-color);
+        }
+
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 20px;
+            max-width: 600px;
+        }
+
+        .cta-btn {
+            background-color: var(--accent-color);
+            color: var(--primary-color);
+            padding: 12px 25px;
+            font-size: 16px;
+            font-weight: bold;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        /* کیٹیگریز / پروڈکٹ سیکشن */
+        .main-container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 28px;
+            margin-bottom: 30px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--accent-color);
+        }
+
+        /* پروڈکٹ گریڈ (موبائل پر خودکار ایڈجسٹ ہونے والا) */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .product-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: 0.3s;
+            border: 1px solid #eee;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .product-img {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+            background-color: #f0f0f0;
+        }
+
+        .product-info {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .product-title {
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+
+        .product-desc {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 15px;
+            height: 40px;
+            overflow: hidden;
+        }
+
+        .view-btn {
+            display: inline-block;
+            width: 100%;
+            background-color: var(--primary-color);
+            color: var(--text-light);
+            padding: 10px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .view-btn:hover {
+            background-color: var(--accent-color);
+            color: var(--primary-color);
+        }
+
+        /* فوٹر */
+        footer {
+            background-color: var(--primary-color);
+            color: #aaa;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+            font-size: 14px;
+            border-top: 3px solid var(--accent-color);
+        }
+
+        /* موبائل اسکرینز کے لیے خصوصی تبدیلیاں */
+        @media (max-width: 600px) {
+            .hero h1 {
+                font-size: 28px;
+            }
+            .hero p {
+                font-size: 15px;
+            }
+            .product-img {
+                height: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ہیڈر سیکشن -->
+    <header>
+        <div class="nav-container">
+            <a href="#" class="logo">بغداد کارنر</a>
+            <a href="https://wa.me/YOUR_NUMBER" class="contact-btn">رابطہ کریں</a>
+        </div>
+    </header>
+
+    <!-- ہیرو بینر -->
+    <section class="hero">
+        <h1>بغداد کارنر میں خوش آمدید</h1>
+        <p>شادیوں، تہواروں اور خاص مواقع کے لیے پریمیم اور فینسی مردانہ لباس کا سب سے بہترین مرکز۔</p>
+        <a href="#collection" class="cta-btn">کلیکشن دیکھیں</a>
+    </section>
+
+    <!-- پروڈکٹس کلیکشن -->
+    <main class="main-container" id="collection">
+        <h2 class="section-title">ہمارا خاص کلیکشن</h2>
+        
+        <div class="product-grid">
+            
+            <!-- پروڈکٹ 1: شیروانی -->
+            <div class="product-card">
+                <div class="product-img" style="display: flex; align-items: center; justify-content: center; background: #e9e9e9; color: #555;">[شیروانی کی تصویر]</div>
+                <div class="product-info">
+                    <h3 class="product-title">رائل دولہا شیروانی</h3>
+                    <p class="product-desc">اعلیٰ کوالٹی فیبرک اور شاندار ہینڈ میڈ کڑھائی کے ساتھ پریمیم شیروانی۔</p>
+                    <a href="#" class="view-btn">ابھی خریدیں (Affiliate Link)</a>
+                </div>
+            </div>
+
+            <!-- پروڈکٹ 2: پرنس کوٹ -->
+            <div class="product-card">
+                <div class="product-img" style="display: flex; align-items: center; justify-content: center; background: #e9e9e9; color: #555;">[پرنس کوٹ کی تصویر]</div>
+                <div class="product-info">
+                    <h3 class="product-title">پریمیم پرنس کوٹ</h3>
+                    <p class="product-desc">شاندار فٹنگ اور ماڈرن ڈیزائن کے ساتھ پارٹی ویئر پرنس کوٹ۔</p>
+                    <a href="#" class="view-btn">ابھی خریدیں (Affiliate Link)</a>
+                </div>
+            </div>
+
+            <!-- پروڈکٹ 3: چکن کاری کرتا -->
+            <div class="product-card">
+                <div class="product-img" style="display: flex; align-items: center; justify-content: center; background: #e9e9e9; color: #555;">[کرتا کی تصویر]</div>
+                <div class="product-info">
+                    <h3 class="product-title">لکھنوی چکن کاری کرتا</h3>
+                    <p class="product-desc">گرمیوں اور تہواروں کے لیے ہاتھ کی خوبصورت کڑھائی کا خالص سوتی کرتا۔</p>
+                    <a href="#" class="view-btn">ابھی خریدیں (Affiliate Link)</a>
+                </div>
+            </div>
+
+            <!-- پروڈکٹ 4: ویسٹ کوٹ -->
+            <div class="product-card">
+                <div class="product-img" style="display: flex; align-items: center; justify-content: center; background: #e9e9e9; color: #555;">[ویسٹ کوٹ کی تصویر]</div>
+                <div class="product-info">
+                    <h3 class="product-title">فینسی ویسٹ کوٹ (بنڈی)</h3>
+                    <p class="product-desc">کرتے پاجامے پر پہننے کے لیے ریشمی اور فینسی ڈیزائنر ویسٹ کوٹ۔</p>
+                    <a href="#" class="view-btn">ابھی خریدیں (Affiliate Link)</a>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- فوٹر -->
+    <footer>
+        <p>© 2026 بغداد کارنر۔ تمام حقوق محفوظ ہیں۔</p>
+        <p>Powered by Baghdad Corner Affiliate Network</p>
+    </footer>
+
+</body>
+</html>
